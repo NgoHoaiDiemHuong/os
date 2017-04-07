@@ -1,3 +1,3 @@
-# os
+# os ubuntu 16.10 for dev
 
-cd ~ curl -sS https://raw.githubusercontent.com/NgoHoaiDiemHuong/os/master/install.sh | sh
+cd $HOME && curl -sSL https://raw.githubusercontent.com/NgoHoaiDiemHuong/os/master/install.sh | sh
