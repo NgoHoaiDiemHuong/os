@@ -175,6 +175,8 @@ _tmux(){
   cd tmux;
   ./configure && make;
   sudo make install;
+  curl -O https://raw.githubusercontent.com/NgoHoaiDiemHuong/os/master/.tmux.conf $HOME
+  tmux source-file ~/.tmux.conf
   
 }
 install_term(){
