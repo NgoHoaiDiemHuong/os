@@ -58,32 +58,43 @@ install_jdk8_oracle(){
   sudo apt install -y oracle-java8-set-default
   
 }
-install_application(){
-  # install chorme,skype, pycharm, DBeaver, subl, wps office  
-  cd ~/.tmp
-  # https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  # chorme 
-  curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  sudo dpkg -i google-chrome-stable_current_amd64.deb
-  
-  # skype
-  curl -O https://repo.skype.com/latest/skypeforlinux-64.deb
-  sudo dpkg -i  skypeforlinux-64.deb
-  
+install_application_chorme(){
+    # install chorme,skype, pycharm, DBeaver, subl, wps office  
+    cd ~/.tmp
+    # https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    # chorme 
+    curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome-stable_current_amd64.deb
+}
+install_skype(){
+    # skype
+    cd ~/.tmp
+    curl -O https://repo.skype.com/latest/skypeforlinux-64.deb
+    sudo dpkg -i  skypeforlinux-64.deb
+}
+  install_pycharm(){
   # pycharm 
-  curl -O https://download-cf.jetbrains.com/python/pycharm-professional-2017.1.tar.gz
-  tar -xzvf pycharm-professional-2017.1.tar.gz
-  cd pycharm-professional-2017.1/bin
-  ./install
-  
-  # http://dbeaver.jkiss.org/files/4.0.4/dbeaver-ce_4.0.4_amd64.deb
-  curl -O http://dbeaver.jkiss.org/files/4.0.4/dbeaver-ce_4.0.4_amd64.deb
-  sudo dpkg -i dbeaver-ce_4.0.4_amd64.deb
-  
+    cd ~/.tmp
+    curl -O https://download-cf.jetbrains.com/python/pycharm-professional-2017.1.tar.gz
+    tar -xzvf pycharm-professional-2017.1.tar.gz
+    cd pycharm-professional-2017.1/bin
+    ./install
+}
+install_dbeaver(){
+    cd ~/.tmp
+    # http://dbeaver.jkiss.org/files/4.0.4/dbeaver-ce_4.0.4_amd64.deb
+    curl -O http://dbeaver.jkiss.org/files/4.0.4/dbeaver-ce_4.0.4_amd64.deb
+    sudo dpkg -i dbeaver-ce_4.0.4_amd64.deb
+}
+install subl(){
   # sublime
-  sudo add-apt-repository ppa:webupd8team/sublime-text-3
-  sudo apt-get -y update
-  sudo apt-get install sublime-text-installer
+    cd ~/.tmp
+    sudo add-apt-repository ppa:webupd8team/sublime-text-3
+    sudo apt-get -y update
+    sudo apt-get install sublime-text-installer
+}
+install_wps(){
+  cd ~/.tmp
   # wps office
   ## remove libre office 
   sudo apt-get -y  purge libreoffice*
@@ -93,16 +104,18 @@ install_application(){
   cd ~/.tmp
   curl -O http://kdl.cc.ksosoft.com/wps-community/download/a21/wps-office_10.1.0.5672~a21_amd64.deb 
   sudo dkpg -i wps-office_10.1.0.5672~a21_amd64.deb
-  
 }
-
-main(){
+install_vim(){
+   cd ~/.tmp
+}
+__main__(){
   update_system
   install_util
   install_theme
   install_vpn_client
   gernarate_ssh_key_git
 }
+__main__()
 
 
 
