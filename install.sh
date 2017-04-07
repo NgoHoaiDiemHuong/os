@@ -54,12 +54,12 @@ install_theme (){
 }
 # install_jdk_oracle
 _jdk8_oracle(){
-#   echo "install jdk oracle"
-#   sudo apt-get -y update;
-#   sudo add-apt-repository ppa:webupd8team/java;
-#   sudo apt-get -y update;
-#   sudo apt -y update;
-  sudo apt -y install oracle-java8-installer;
+  echo "install jdk oracle"
+  sudo apt-get -y update
+  sudo add-apt-repository ppa:webupd8team/java
+  sudo apt-get -y update
+  sudo apt -y update
+  sudo apt -y install oracle-java8-installer
   sudo apt install -y oracle-java8-set-default
   
 }
@@ -154,7 +154,7 @@ _vim(){
 }
 install_build_package(){
   echo "Install build pakage"
-sudo apt-get -y install libevent-dev ncurses-dev \
+  sudo apt-get -y install libevent-dev ncurses-dev \
                         build-essential make automake software-properties-common \
                         python-dev python3-dev gcc libssl-dev \
                         zlib1g-dev libpq-dev libtiff5-dev libjpeg8-dev libfreetype6-dev \
