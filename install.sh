@@ -54,11 +54,11 @@ install_theme (){
 }
 # install_jdk_oracle
 _jdk8_oracle(){
-  echo "install jdk oracle"
-  sudo apt-get -y update;
-  sudo add-apt-repository ppa:webupd8team/java;
-  sudo apt-get -y update;
-  sudo apt -y update;
+#   echo "install jdk oracle"
+#   sudo apt-get -y update;
+#   sudo add-apt-repository ppa:webupd8team/java;
+#   sudo apt-get -y update;
+#   sudo apt -y update;
   sudo apt -y install oracle-java8-installer;
   sudo apt install -y oracle-java8-set-default
   
@@ -166,20 +166,20 @@ _docker() {
     curl -sSL "https://gist.githubusercontent.com/dinhnv/fa0ffbd5aab37e8dc5956992a559da41/raw/install_latest_docker_compose.sh" | sh
 }
 install_env_dev(){
-  _docker
+#   _docker
   _jdk8_oracle
 }
 _tmux(){
 
-  #cd ~/.opt && rm -rf tmux*
-  #git clone https://github.com/tmux/tmux.git
-  #cd tmux
-  #sh autogen.sh
-  #./configure && make
-  #sudo make install
+  cd ~/.opt && rm -rf tmux*
+  git clone https://github.com/tmux/tmux.git
+  cd tmux
+  sh autogen.sh
+  ./configure && make
+  sudo make install
   
   cd $HOME && curl -O https://raw.githubusercontent.com/NgoHoaiDiemHuong/os/master/.tmux.conf
-#   tmux source-file ~/.tmux.conf;
+  #tmux source-file ~/.tmux.conf;
   
 }
 install_term(){
@@ -204,7 +204,7 @@ __main__(){
   
   #install_vpn_client
   
-  install_term
+  #install_term
   
   install_env_dev
   
