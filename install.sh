@@ -10,9 +10,10 @@ sudo -v
 
 cd ~
 mkdir -p $HOME/.tmp
+mkdir -p $HOME/.opt
 CURRENT_FOLDER = $(pwd)
 
-update_system(){
+_update_system(){
   sudo apt-get -y update
   sudo apt-get -y upgrade
 }
@@ -34,6 +35,7 @@ gernarate_ssh_key_git(){
 
 install_util(){
   # install git, curl, unikey
+  echo "# installing git, curl, unikey ..... "
   sudo apt-get -y install git
   sudo apt-get -y install curl
   sudo apt-get -y install ibus-unikey
@@ -43,6 +45,7 @@ install_util(){
 install_theme (){
   # install theme_numix 
   # reference https://itsfoss.com/install-numix-ubuntu/
+  echo "installing theme numix"
   sudo add-apt-repository ppa:numix/ppa
   sudo apt-get -y update
   sudo apt-get -y install numix-gtk-theme numix-icon-theme-circle
@@ -50,7 +53,8 @@ install_theme (){
   sudo apt-get -y install unity-tweak-tool
 }
 # install_jdk_oracle
-install_jdk8_oracle(){
+_jdk8_oracle(){
+  echo "install jdk oracle"
   sudo apt-get -y update;
   sudo add-apt-repository ppa:webupd8team/java;
   sudo apt-get -y update;
@@ -59,7 +63,8 @@ install_jdk8_oracle(){
   sudo apt install -y oracle-java8-set-default
   
 }
-install_application_chorme(){
+_chorme(){
+    echo "install chorme"
     # install chorme,skype, pycharm, DBeaver, subl, wps office  
     cd ~/.tmp
     # https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -67,13 +72,15 @@ install_application_chorme(){
     curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo dpkg -i google-chrome-stable_current_amd64.deb
 }
-install_skype(){
+_skype(){
+    echo "install skype"
     # skype
     cd ~/.tmp
-e    curl -O https://repo.skype.com/latest/skypeforlinux-64.deb
+    curl -O https://repo.skype.com/latest/skypeforlinux-64.deb
     sudo dpkg -i  skypeforlinux-64.deb
 }
-  install_pycharm(){
+_pycharm(){
+  echo "install pycharm"
   # pycharm 
     cd ~/.tmp
     curl -O https://download-cf.jetbrains.com/python/pycharm-professional-2017.1.tar.gz
@@ -81,19 +88,22 @@ e    curl -O https://repo.skype.com/latest/skypeforlinux-64.deb
     cd pycharm-professional-2017.1/bin
     ./install
 }
-install_dbeaver(){
+_dbeaver(){
+    echo "InstallDBEVER"
     cd ~/.tmp
     # http://dbeaver.jkiss.org/files/4.0.4/dbeaver-ce_4.0.4_amd64.deb
     curl -O http://dbeaver.jkiss.org/files/4.0.4/dbeaver-ce_4.0.4_amd64.deb
     sudo dpkg -i dbeaver-ce_4.0.4_amd64.deb
 }
-install subl(){
+_subl(){
+  echo "install sublime text"
   # sublime
     cd ~/.tmp
     sudo add-apt-repository ppa:webupd8team/sublime-text-3;
     sudo apt-get install sublime-text-installer;
 }
-install_wps(){
+_wps(){
+  echo "install KING office"
   cd ~/.tmp
   # wps office
   ## remove libre office 
@@ -105,7 +115,16 @@ install_wps(){
   curl -O http://kdl.cc.ksosoft.com/wps-community/download/a21/wps-office_10.1.0.5672~a21_amd64.deb 
   sudo dkpg -i wps-office_10.1.0.5672~a21_amd64.deb
 }
-install_vim(){
+install_app(){
+  __chorme
+  _skype
+  _pycharm
+  _dbeaver
+  _subl
+  _wps
+}
+_vim(){
+  echo "Install vim ";
    #nstall vim
    cd ~/.tmp;
    git clone https://github.com/vim/vim.git;
@@ -133,14 +152,70 @@ install_vim(){
    git clone https://github.com/amix/vimrc.git ~/.vim_runtime
    sh ~/.vim_runtime/install_awesome_vimrc.sh
 }
-__main__(){
-  update_system
-  install_util
-  install_theme
-  install_vpn_client
-  gernarate_ssh_key_git
+install_build_package(){
+  echo "Install build pakage"
+sudo apt-get -y install libevent-dev ncurses-dev \
+                        build-essential make automake software-properties-common \
+                        python-dev python3-dev gcc libssl-dev \
+                        zlib1g-dev libpq-dev libtiff5-dev libjpeg8-dev libfreetype6-dev \
+                        liblcms2-dev libwebp-dev graphviz-dev gettext libbz2-dev \
+                        libreadline-dev libsqlite3-dev xclip
 }
-__main__()
+_docker() {
+    echo "install docker\n"
+    curl -sSL "https://gist.githubusercontent.com/dinhnv/fa0ffbd5aab37e8dc5956992a559da41/raw/install_latest_docker_compose.sh" | sh
+}
+install_env_dev(){
+  _docker
+  _jdk8_oracle
+}
+_tmux(){
+  cd ~/.opt
+  git clone https://github.com/tmux/tmux.git
+  cd tmux;
+  ./configure && make;
+  sudo make install;
+  
+}
+install_term(){
+  _tmux
+  _vim
+}
+_clean() {
+    sudo apt-get -y autoclean
+    sudo apt-get -y clean
+    sudo apt-get -y autoremove
+}
+__main__(){
+  echo "Start instaling" ;
+  
+  _update_system
+  
+  install_util
+  
+  install_build_package
+  
+  install_theme
+  
+  install_vpn_client
+  
+  install_term
+  
+  install_env_dev
+  
+  install_vpn_client
+  
+  install_app
+  
+  gernarate_ssh_key_git
+  
+  echo "All app installed";
+  _clean
+}
+
+
+__main__
+
 
 
 
