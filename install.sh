@@ -170,12 +170,13 @@ install_env_dev(){
   _jdk8_oracle
 }
 _tmux(){
-  cd ~/.opt && rm -rf tmux*;
+  cd ~/.opt && rm -rf tmux*
   git clone https://github.com/tmux/tmux.git
-  cd tmux;
-  sh autogen.sh;
-  ./configure && make;
-  sudo make install;
+  cd tmux
+  sh autogen.sh
+  ./configure && make
+  sudo make install
+  
   curl -O https://raw.githubusercontent.com/NgoHoaiDiemHuong/os/master/.tmux.conf $HOME;
   tmux source-file ~/.tmux.conf;
   
