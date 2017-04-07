@@ -70,7 +70,7 @@ install_application_chorme(){
 install_skype(){
     # skype
     cd ~/.tmp
-    curl -O https://repo.skype.com/latest/skypeforlinux-64.deb
+e    curl -O https://repo.skype.com/latest/skypeforlinux-64.deb
     sudo dpkg -i  skypeforlinux-64.deb
 }
   install_pycharm(){
@@ -90,9 +90,8 @@ install_dbeaver(){
 install subl(){
   # sublime
     cd ~/.tmp
-    sudo add-apt-repository ppa:webupd8team/sublime-text-3
-    sudo apt-get -y update
-    sudo apt-get install sublime-text-installer
+    sudo add-apt-repository ppa:webupd8team/sublime-text-3;
+    sudo apt-get install sublime-text-installer;
 }
 install_wps(){
   cd ~/.tmp
@@ -124,9 +123,15 @@ install_vim(){
    make;
    sudo make install;
    #install extention vim     
+   #=========================
    #reference at: https://github.com/egalpin/apt-vim
-   curl -sL https://raw.githubusercontent.com/egalpin/apt-vim/master/install.sh | sh
+   #curl -sL https://raw.githubusercontent.com/egalpin/apt-vim/master/install.sh | sh
+   #app-vim init;
    # create file vim rc
+   #=========================
+   # install awesome vim for use it
+   git clone https://github.com/amix/vimrc.git ~/.vim_runtime
+   sh ~/.vim_runtime/install_awesome_vimrc.sh
 }
 __main__(){
   update_system
