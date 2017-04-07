@@ -107,7 +107,26 @@ install_wps(){
   sudo dkpg -i wps-office_10.1.0.5672~a21_amd64.deb
 }
 install_vim(){
-   cd ~/.tmp
+   #nstall vim
+   cd ~/.tmp;
+   git clone https://github.com/vim/vim.git;
+   cd vim/src;
+   ./configure --with-features=huge \
+            --enable-multibyte \
+            --enable-rubyinterp=yes \
+            --enable-pythoninterp=yes \
+            --with-python-config-dir=/usr/lib/python2.7/config \
+            --enable-python3interp=yes \
+            --with-python3-config-dir=/usr/lib/python3.5/config \
+            --enable-perlinterp=yes \
+            --enable-luainterp=yes \
+            --enable-gui=gtk2 --enable-cscope --prefix=/usr
+   make;
+   sudo make install;
+   #install extention vim     
+   #reference at: https://github.com/egalpin/apt-vim
+   curl -sL https://raw.githubusercontent.com/egalpin/apt-vim/master/install.sh | sh
+   # create file vim rc
 }
 __main__(){
   update_system
