@@ -11,7 +11,7 @@ sudo -v
 cd ~
 mkdir -p $HOME/.tmp
 mkdir -p $HOME/.opt
-export CURRENT_FOLDER = $(pwd)
+export CURRENT_FOLDER=$(pwd)
 
 _update_system(){
   sudo apt-get -y update
