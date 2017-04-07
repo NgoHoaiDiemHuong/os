@@ -10,6 +10,7 @@ sudo -v
 
 cd ~
 mkdir -p $HOME/.tmp
+CURRENT_FOLDER = $(pwd)
 
 update_system(){
   sudo apt-get -y update
