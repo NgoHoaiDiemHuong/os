@@ -191,15 +191,15 @@ _clean() {
 __main__(){
   echo "Start instaling" ;
   
-  _update_system
+  #_update_system
   
-  install_util
+  #install_util
   
-  install_build_package
+  #install_build_package
   
-  install_theme
+  #install_theme
   
-  install_vpn_client
+  #install_vpn_client
   
   install_term
   
