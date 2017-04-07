@@ -116,7 +116,7 @@ _wps(){
   sudo dkpg -i wps-office_10.1.0.5672~a21_amd64.deb
 }
 install_app(){
-  __chorme
+  _chorme
   _skype
   _pycharm
   _dbeaver
