@@ -170,8 +170,7 @@ install_env_dev(){
   _jdk8_oracle
 }
 _tmux(){
-  cd ~/.opt;
-  rm -rf tmux*; 
+  cd ~/.opt && rm -rf tmux*;
   git clone https://github.com/tmux/tmux.git
   cd tmux;
   ./configure && make;
