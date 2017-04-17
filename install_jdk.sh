@@ -3,7 +3,7 @@ set -e
 sudo -v
 
 _jdk(){
-   echo "install jdk8 oracle"
+   echo "install jdk8 oracle ..."
   # ubuntu 16.04, 17.04 64 bit
   # install jdk 8 from Oracle officel
   # install Oracle client (SQL PLUS)
