@@ -10,9 +10,10 @@ _jdk(){
   # http://www.tecmint.com/install-java-jdk-jre-in-linux/
   # https://ivan-site.com/2012/05/download-oracle-java-jre-jdk-using-a-script/
   # remove all jdk openjdk
-  sudo apt-get remove openjdk-*
+  sudo apt-get remove -y openjdk-*
 
-  mkdir -p /opt/java
+  sudo mkdir -p /opt/java
+  sudo -R chmod 777 /opt/java
   cd /opt/Java
   # download .tar file in Oracle Home
   wget --no-cookies --no-check-certificate \
