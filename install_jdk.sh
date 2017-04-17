@@ -1,4 +1,5 @@
 set -e
+sudo -v
 
 _jdk(){
   # ubuntu 16.04, 17.04 64 bit
