@@ -25,8 +25,8 @@ _jdk(){
   # update  update-alternatives
   cd jdk1.8.0_121/
   sudo update-alternatives --install /usr/bin/java java /opt/java/jdk1.8.0_121/bin/java 100
-  sudo update-alternatives --install /usr/bin/javac javac /opt/java/jdk1.8.0_121/bin/javac 100 
-  sudo update-alternatives --install /usr/bin/jar jar /opt/java/jdk1.8.0_121/bin/jar 100
+  # sudo update-alternatives --install /usr/bin/javac javac /opt/java/jdk1.8.0_121/bin/javac 100 
+  # sudo update-alternatives --install /usr/bin/jar jar /opt/java/jdk1.8.0_121/bin/jar 100
 
   # if you had many version Java you can update command 
   # update-alternatives --config java
