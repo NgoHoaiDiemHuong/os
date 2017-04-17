@@ -35,6 +35,6 @@ _jdk(){
   " >> ~/.bashrc
 
   source ~/.bashrc
-}
+ }
 _jdk
 
