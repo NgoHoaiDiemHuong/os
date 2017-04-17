@@ -6,7 +6,6 @@ _jdk(){
    echo "install jdk8 oracle ..."
   # ubuntu 16.04, 17.04 64 bit
   # install jdk 8 from Oracle officel
-  # install Oracle client (SQL PLUS)
   # http://www.tecmint.com/install-java-jdk-jre-in-linux/
   # https://ivan-site.com/2012/05/download-oracle-java-jre-jdk-using-a-script/
   # remove all jdk openjdk
