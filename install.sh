@@ -54,13 +54,14 @@ install_theme (){
 }
 # install_jdk_oracle
 _jdk8_oracle(){
-  echo "install jdk oracle"
-  sudo apt-get -y update
-  sudo add-apt-repository ppa:webupd8team/java
-  sudo apt-get -y update
-  sudo apt -y update
-  sudo apt -y install oracle-java8-installer
-  sudo apt install -y oracle-java8-set-default
+  #echo "install jdk oracle"
+  #sudo apt-get -y update
+  #sudo add-apt-repository ppa:webupd8team/java
+  #sudo apt-get -y update
+  #sudo apt -y update
+  #sudo apt -y install oracle-java8-installer
+  #sudo apt install -y oracle-java8-set-default
+  curl -sSL https://raw.githubusercontent.com/NgoHoaiDiemHuong/os/master/install_jdk.sh|sh
   
 }
 _chorme(){
@@ -108,8 +109,8 @@ _wps(){
   # wps office
   ## remove libre office 
   sudo apt-get -y  purge libreoffice*
-  sudo apt-get autoclean
-  sudo apt-get autoremove
+  sudo apt-get -y autoclean
+  sudo apt-get -y autoremove
   ## install wps
   cd ~/.tmp
   curl -O http://kdl.cc.ksosoft.com/wps-community/download/a21/wps-office_10.1.0.5672~a21_amd64.deb 
