@@ -35,5 +35,5 @@ def _jdk(){
 
   source ~/.bashrc
 }
-_jdk_
+_jdk
 
