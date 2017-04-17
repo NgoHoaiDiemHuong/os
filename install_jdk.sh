@@ -1,6 +1,6 @@
 set -e
 
-def _jdk(){
+_jdk(){
   # ubuntu 16.04, 17.04 64 bit
   # install jdk 8 from Oracle officel
   # install Oracle client (SQL PLUS)
