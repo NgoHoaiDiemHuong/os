@@ -15,7 +15,7 @@ _jdk(){
   
   sudo mkdir -p /opt/java
   sudo chmod 777 -R /opt/java
-  cd /opt/Java
+  cd /opt/java
   # download .tar file in Oracle Home
   wget --no-cookies --no-check-certificate \
        --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" \
