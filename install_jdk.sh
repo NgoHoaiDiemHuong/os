@@ -14,7 +14,7 @@ _jdk(){
   sudo apt-get autoclean -y
   
   sudo mkdir -p /opt/java
-  sudo -R chmod 777 /opt/java
+  sudo chmod 777 -R /opt/java
   cd /opt/Java
   # download .tar file in Oracle Home
   wget --no-cookies --no-check-certificate \
