@@ -11,7 +11,9 @@ _jdk(){
   # https://ivan-site.com/2012/05/download-oracle-java-jre-jdk-using-a-script/
   # remove all jdk openjdk
   sudo apt-get remove -y openjdk-*
-
+  sudo apt autoremove -y
+  sudo apt-get autoclean -y
+  
   sudo mkdir -p /opt/java
   sudo -R chmod 777 /opt/java
   cd /opt/Java
