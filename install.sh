@@ -10,8 +10,8 @@ sudo -v
 # create  a tmp folder
 
 cd ~
-mkdir -p $HOME/.tmp
-mkdir -p $HOME/.opt
+mkdir -p "$HOME"/.tmp
+mkdir -p "$HOME"/.opt
 
 export CURRENT_FOLDER
 CURRENT_FOLDER=$(pwd)
@@ -183,7 +183,7 @@ install_build_package(){
                         libreadline-dev libsqlite3-dev xclip
 }
 _docker() {
-    echo "install docker\n"
+    echo "install docker"
     curl -sSL "https://gist.githubusercontent.com/dinhnv/fa0ffbd5aab37e8dc5956992a559da41/raw/install_latest_docker_compose.sh" | sh
 }
 install_env_dev(){
