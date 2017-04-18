@@ -135,12 +135,12 @@ _wps(){
   
 }
 install_app(){
-  { _chorme }||{ echo "_chorme fail"}
-  { _skype }|| { echo "_skype fail"}
-  { _pycharm }||{ echo "_pycharm fail"}
-  { _dbeaver }||{ echo "_dbeaver fail"}}
-  { _subl }||{ echo "_subl fail"}
-  { _wps }||{ echo " _wps fail"}
+  _chorme || echo "_chorme fail"
+  _skype || echo "_skype fail"
+  _pycharm ||echo "_pycharm fail"
+  _dbeaver || echo "_dbeaver fail"
+  _subl || echo "_subl fail"
+  _wps ||echo " _wps fail"
 }
 _vim(){
   echo "Install vim "
@@ -185,8 +185,8 @@ _docker() {
     curl -sSL "https://gist.githubusercontent.com/dinhnv/fa0ffbd5aab37e8dc5956992a559da41/raw/install_latest_docker_compose.sh" | sh
 }
 install_env_dev(){
-  { _docker} || {echo "_docker fail "}
-  {_jdk8_oracle}||{echo "_jdk8_oracle fail"}
+  _docker || echo "_docker fail "
+  _jdk8_oracle || echo "_jdk8_oracle fail"
 }
 _tmux(){
 
@@ -202,8 +202,8 @@ _tmux(){
   
 }
 install_term(){
-  { _tmux }||{echo "_tmux fail"}
-  { _vim } || {echo "_vim fail"}
+  _tmux || echo "_tmux fail"
+  _vim } || echo "_vim fail"
 }
 _clean() {
     sudo apt-get -y autoclean
@@ -215,19 +215,19 @@ __main__(){
   
   _update_system
   
-  { install_util }||{ echo "install_util fail" }
+  install_util || echo "install_util fail"
   
-  { install_build_package} || {echo "install_build_package fail"}
+  install_build_package || echo "install_build_package fail"
   
-  { install_theme }|| {echo "install_theme fail"}
+  install_theme || echo "install_theme fail"
   
-  { install_vpn_client }||{ echo "install_theme fail"}
+  install_vpn_client || echo "install_theme fail"
   
-  { install_term } || {echo "install_term fail" }
+  install_term || echo "install_term fail"
   
-  { install_env_dev }||{ echo "install_env_dev fail"}
+  install_env_dev || echo "install_env_dev fail"
   
-  { install_vpn_client }||{echo "install_vpn_client fail" }
+  install_vpn_client || echo "install_vpn_client fail"
   
   install_app
   
