@@ -130,10 +130,10 @@ _wps(){
   ## install wps
   cd ~/.tmp
   curl -O http://kdl.cc.ksosoft.com/wps-community/download/a21/wps-office_10.1.0.5672~a21_amd64.deb 
-  sudo dkpg -i wps-office_10.1.0.5672~a21_amd64.deb
+  sudo dpkg -i wps-office_10.1.0.5672~a21_amd64.deb
   ## install wps-fonts
   curl -O http://kdl.cc.ksosoft.com/wps-community/download/fonts/wps-office-fonts_1.0_all.deb
-  sudo dkpg -i wps-office-fonts_1.0_all.deb
+  sudo dpkg -i wps-office-fonts_1.0_all.deb
   
 }
 install_app(){
