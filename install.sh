@@ -1,3 +1,4 @@
+!#/bin/bash
 # this file refenced https://github.com/dinhnv/dev-os/blob/master/linux.sh
 # Needing sudo permisstion for run a some command install application
 
