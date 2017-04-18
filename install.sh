@@ -18,6 +18,19 @@ _update_system(){
   sudo apt-get -y upgrade
 }
 
+__add_ppa() {
+  grep -h "^deb.*$1" /etc/apt/sources.list.d/* > /dev/null 2>&1
+  if [ $? -ne 0 ]
+  then
+    echo "Adding ppa:$1"
+    sudo add-apt-repository -y ppa:$1
+    return 0
+  fi
+
+  echo "ppa:$1 already exists"
+  return 1
+}
+
 install_vpn_client(){
   # install ovpn
   # http://askubuntu.com/questions/760664/ubuntu-16-04-openvpn
@@ -39,17 +52,17 @@ install_util(){
   sudo apt-get -y install git
   sudo apt-get -y install curl
   sudo apt-get -y install ibus-unikey
-  
+  ibus restart
 }
 
 install_theme (){
   # install theme_numix 
   # reference https://itsfoss.com/install-numix-ubuntu/
   echo "installing theme numix"
-  sudo add-apt-repository ppa:numix/ppa
+  __add_ppa numix/ppa
   sudo apt-get -y update
   sudo apt-get -y install numix-gtk-theme numix-icon-theme-circle
-  sudo apt-get -y install numix-wallpaper-*
+  # sudo apt-get -y install numix-wallpaper-* -> it ever suppore in 17.04
   sudo apt-get -y install unity-tweak-tool
 }
 # install_jdk_oracle
@@ -100,8 +113,8 @@ _subl(){
   echo "install sublime text"
   # sublime
     cd ~/.tmp
-    sudo add-apt-repository ppa:webupd8team/sublime-text-3;
-    sudo apt-get install sublime-text-installer;
+    __add_ppa webupd8team/sublime-text-3
+    sudo apt-get install sublime-text-installer
 }
 _wps(){
   echo "install KING office"
@@ -121,12 +134,12 @@ _wps(){
   
 }
 install_app(){
-  _chorme
-  _skype
-  _pycharm
-  _dbeaver
-  _subl
-  _wps
+  { _chorme }||{ echo "_chorme fail"}
+  { _skype }|| { echo "_skype fail"}
+  { _pycharm }||{ echo "_pycharm fail"}
+  { _dbeaver }||{ echo "_dbeaver fail"}}
+  { _subl }||{ echo "_subl fail"}
+  { _wps }||{ echo " _wps fail"}
 }
 _vim(){
   echo "Install vim "
@@ -171,8 +184,8 @@ _docker() {
     curl -sSL "https://gist.githubusercontent.com/dinhnv/fa0ffbd5aab37e8dc5956992a559da41/raw/install_latest_docker_compose.sh" | sh
 }
 install_env_dev(){
-#   _docker
-  _jdk8_oracle
+  { _docker} || {echo "_docker fail "}
+  {_jdk8_oracle}||{echo "_jdk8_oracle fail"}
 }
 _tmux(){
 
@@ -188,8 +201,8 @@ _tmux(){
   
 }
 install_term(){
-  _tmux
-  _vim
+  { _tmux }||{echo "_tmux fail"}
+  { _vim } || {echo "_vim fail"}
 }
 _clean() {
     sudo apt-get -y autoclean
@@ -201,19 +214,19 @@ __main__(){
   
   _update_system
   
-  install_util
+  { install_util }||{ echo "install_util fail" }
   
-  install_build_package
+  { install_build_package} || {echo "install_build_package fail"}
   
-  install_theme
+  { install_theme }|| {echo "install_theme fail"}
   
-  install_vpn_client
+  { install_vpn_client }||{ echo "install_theme fail"}
   
-  install_term
+  { install_term } || {echo "install_term fail" }
   
-  install_env_dev
+  { install_env_dev }||{ echo "install_env_dev fail"}
   
-  install_vpn_client
+  { install_vpn_client }||{echo "install_vpn_client fail" }
   
   install_app
   
