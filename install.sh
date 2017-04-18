@@ -12,7 +12,9 @@ sudo -v
 cd ~
 mkdir -p $HOME/.tmp
 mkdir -p $HOME/.opt
-export CURRENT_FOLDER=$(pwd)
+
+export CURRENT_FOLDER
+CURRENT_FOLDER=$(pwd)
 
 _update_system(){
   sudo apt-get -y update
@@ -203,7 +205,7 @@ _tmux(){
 }
 install_term(){
   _tmux || echo "_tmux fail"
-  _vim } || echo "_vim fail"
+  _vim || echo "_vim fail"
 }
 _clean() {
     sudo apt-get -y autoclean
