@@ -32,10 +32,11 @@ _jdk(){
   # update-alternatives --config java
   # update-alternatives --config javac
   # update-alternatives --config jar
+  JAVA_HOME=$(PWD)
   echo "
-  export JAVA_HOME=/opt/java/jdk1.8.0_121/
-  export JRE_HOME=/opt/java/jdk1.8.0_121/jre
-  export PATH=\$PATH:/opt/java/jdk1.8.0_121/bin:/opt/java/jdk1.8.0_121/jre/bin
+  export JAVA_HOME=$JAVA_HOME
+  export JRE_HOME=$JAVA_HOME/jre
+  export PATH=\$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
   " >> ~/.bashrc
 
   source ~/.bashrc
