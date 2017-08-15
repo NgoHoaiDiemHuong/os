@@ -32,7 +32,7 @@ _jdk(){
   # update-alternatives --config java
   # update-alternatives --config javac
   # update-alternatives --config jar
-  JAVA_HOME=$(PWD)
+  JAVA_HOME=$(pwd)
   echo "
   export JAVA_HOME=$JAVA_HOME
   export JRE_HOME=$JAVA_HOME/jre
