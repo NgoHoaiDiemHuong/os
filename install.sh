@@ -184,7 +184,7 @@ install_build_package(){
 }
 _docker() {
     echo "install docker"
-    curl -sSL "https://gist.githubusercontent.com/dinhnv/fa0ffbd5aab37e8dc5956992a559da41/raw/install_latest_docker_compose.sh" | sh
+    curl -sSL "https://gist.githubusercontent.com/huongnhdh/ef9a08e8e1fb82333d70cb749adbc2ee/raw/3757a90943fa83c2fbb06fda9dadc857d9189b67/install_latest_docker_compose.sh" | sh
 }
 install_env_dev(){
   _docker || echo "_docker fail "
