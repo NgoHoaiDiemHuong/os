@@ -19,8 +19,10 @@ case $i in
     ;;
 esac
 done
-echo USER_NAME = ${USER_NAME} || 'huongnhd'
-echo EMAIL = ${EMAIL} || 'huongnhdh@gmail.com'
+${USER_NAME:='huongnhd'}
+${EMAIL:='huongnhdh@gmail.com'}
+echo USER_NAME = ${USER_NAME}
+echo EMAIL = ${EMAIL}
 
 # generate key
 ssh-keygen -t rsa -C $USER_NAME
