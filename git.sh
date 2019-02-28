@@ -1,8 +1,9 @@
 #!/bin/bash
-: '
+cat <<END
 @author: huongnhdh@gmail.com
-'
+END
 set -euo pipefail
+IFS=$'\n\t'
 
 for i in "$@"
 do
