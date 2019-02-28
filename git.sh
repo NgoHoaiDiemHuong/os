@@ -25,13 +25,13 @@ echo USER_NAME = ${USER_NAME}
 echo EMAIL = ${EMAIL}
 
 # generate key
-ssh-keygen -t rsa -C $USER_NAME
+ssh-keygen -t rsa -C ${USER_NAME}
 
 # copy to clipboard
 xclip -sel c < .ssh/id_rsa.pub
 cat .ssh/id_rsa.pub | xclip -i 
 
-# git config user.name $USER_NAME
-git config --global user.name $USER_NAME
-git config --global user.email $EMAIL
+# git config user.name ${USER_NAME}
+git config --global user.name ${USER_NAME}
+git config --global user.email ${EMAIL}
 git config --global color.ui false
