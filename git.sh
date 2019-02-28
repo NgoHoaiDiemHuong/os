@@ -1,7 +1,7 @@
 #!/bin/bash
-cat <<END
+:'COMMENT'
 @author: huongnhdh@gmail.com
-END
+'
 set -euo pipefail
 IFS=$'\n\t'
 
