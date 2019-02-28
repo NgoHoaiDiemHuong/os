@@ -1,5 +1,5 @@
 #!/bin/bash
-:'COMMENT'
+: '
 @author: huongnhdh@gmail.com
 '
 set -euo pipefail
