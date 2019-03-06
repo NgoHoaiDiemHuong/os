@@ -25,7 +25,7 @@ _jdk(){
 
   # update  update-alternatives
   cd ${VERSION}
-  sudo update-alternatives --install /usr/bin/java java /opt/java/j${VERSION}/bin/java 100
+  sudo update-alternatives --install /usr/bin/java java /opt/java/${VERSION}/bin/java 100
   # sudo update-alternatives --install /usr/bin/javac javac /opt/java/${VERSION}/bin/javac 100 
   # sudo update-alternatives --install /usr/bin/jar jar /opt/java/${VERSION}/bin/jar 100
 
