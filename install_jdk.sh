@@ -17,16 +17,17 @@ _jdk(){
   sudo chmod 777 -R /opt/java
   cd /opt/java
   # download .tar file in Oracle Home
+  VERSION = 'jdk1.8.0_201'
   wget --no-cookies --no-check-certificate \
        --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" \
-          "http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-8u121-linux-x64.tar.gz"
-  tar -xzvf jdk-8u121-linux-x64.tar.gz
+          "http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/${VERSION}-linux-x64.tar.gz"
+  tar -xzvf ${VERSION}-linux-x64.tar.gz
 
   # update  update-alternatives
-  cd jdk1.8.0_121/
-  sudo update-alternatives --install /usr/bin/java java /opt/java/jdk1.8.0_121/bin/java 100
-  # sudo update-alternatives --install /usr/bin/javac javac /opt/java/jdk1.8.0_121/bin/javac 100 
-  # sudo update-alternatives --install /usr/bin/jar jar /opt/java/jdk1.8.0_121/bin/jar 100
+  cd ${VERSION}
+  sudo update-alternatives --install /usr/bin/java java /opt/java/j${VERSION}/bin/java 100
+  # sudo update-alternatives --install /usr/bin/javac javac /opt/java/${VERSION}/bin/javac 100 
+  # sudo update-alternatives --install /usr/bin/jar jar /opt/java/${VERSION}/bin/jar 100
 
   # if you had many version Java you can update command 
   # update-alternatives --config java
