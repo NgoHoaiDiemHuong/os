@@ -136,10 +136,18 @@ Plug 'vim-syntastic/syntastic'
 " debugging
 Plug 'sakhnik/nvim-gdb'
 Plug 'vhda/verilog_systemverilog.vim'
+
+" FuzzySearch
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 call plug#end()
 
 " Denite settings
 nnoremap <space>e :Denite file_rec <cr>
+
+" Map for fuzzy search more info at https://jdhao.github.io/2018/11/05/fzf_install_use/
+nnoremap <silent> <leader>f :FZF<cr>
+nnoremap <silent> <leader>F :FZF ~<cr>
 
 call denite#custom#map(
       \ 'insert',
